@@ -5,6 +5,8 @@
 ### Created by Planet Express
 * Joshua Learn - jjrylearn
 * Megan Learn - learnmp
+* Joe Tatusko - joetats
+* Put your name and github handle
 
 ### Solution Description
 
