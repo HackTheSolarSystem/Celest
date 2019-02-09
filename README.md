@@ -4,6 +4,7 @@
 
 ### Created by Planet Express
 * Joshua Learn - jjrylearn
+* Joe Tatusko - joetats
 * Put your name and github handle
 
 ### Solution Description
