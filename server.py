@@ -3,10 +3,10 @@ from flask import Flask, render_template, request, jsonify, Response
 
 # Create the app object that will route our calls
 app = Flask(__name__)
-# Add a single endpoint that we can use for testing
+# Route the user to the homepage
 @app.route("/", methods=["GET"])
 def home():
-    return "<h1> Hello World </h1>"
+    return render_template("index.html")
 
 
 # When run from command line, start the server
