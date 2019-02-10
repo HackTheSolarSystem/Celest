@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_file
 import datetime
-from utils import get_helioview_image, download_file, get_image_id, get_image_metadata, make_filename
+from utils import get_helioview_image, download_file, get_image_id, get_image_metadata, make_filename, remove_file
 import json
+import zipfile
+
 
 
 def get_date_ranges(start_date, end_date):
@@ -26,35 +28,40 @@ def sun():
     end_datetime = datetime.datetime.strptime(f"{request.args.get('end_date')} {request.args.get('end_time')}", "%Y-%m-%d %H:%M:%S")
     source_id = request.args.get("sourceId")
 
-    for ind, target in enumerate(get_date_ranges(start_datetime, end_datetime)):
-        params = {
-            "year": target.year,
-            "month": target.month,
-            "day": target.day,
-            "hour": target.hour,
-            "minute": target.minute,
-            "second": target.second,
-            "source_id": source_id
-        }
+    with zipfile.ZipFile('your_files.zip','w', zipfile.ZIP_DEFLATED) as zipf:
 
-        image_id = get_image_id(params)
-        image_headers = get_image_metadata(image_id)
+        for ind, target in enumerate(get_date_ranges(start_datetime, end_datetime)):
+            params = {
+                "year": target.year,
+                "month": target.month,
+                "day": target.day,
+                "hour": target.hour,
+                "minute": target.minute,
+                "second": target.second,
+                "source_id": source_id
+            }
 
-        raw = get_helioview_image(params)
-        img = raw.read()
+            image_id = get_image_id(params)
+            image_headers = get_image_metadata(image_id)
 
-        filename = make_filename(json.loads(image_headers)['meta']['fits']['DATE'])
-        print(filename)
-        
+            raw = get_helioview_image(params)
+            img = raw.read()
 
-        with open(f"{filename}.json", 'w') as file:
-            file.write(image_headers)
-        with open(f"{filename}.jp2", 'wb') as file:
-            file.write(img)
+            filename = make_filename(json.loads(image_headers)['meta']['fits']['DATE'], source_id)
+            print(filename)
+            
 
-        
+            with open(f"{filename}.json", 'w') as file:
+                file.write(image_headers)
+            with open(f"{filename}.jp2", 'wb') as file:
+                file.write(img)
+            
+            zipf.write(f"{filename}.json")
+            zipf.write(f"{filename}.jp2")
+            remove_file(f"{filename}.json")
+            remove_file(f"{filename}.jp2")
 
-    return redirect(url_for('index'))
+    return send_file('your_files.zip')
 
 if __name__ == "__main__":
     app.run()

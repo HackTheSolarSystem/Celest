@@ -107,10 +107,11 @@ def build_query_dict(year, month, day, hour, minute, second, source_id):
         "source_id": source_id,
     }
 
-def make_filename(header_date_time):
+def make_filename(header_date_time,source_id):
     filename = header_date_time.split('T')
     date_parts = filename[0].split('-')
     time_parts = filename[1].split(':')
     date_parts.append('00')
     date_parts.extend(time_parts)
+    date_parts.append(source_id)
     return '_'.join(date_parts)
