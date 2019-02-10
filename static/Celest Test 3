@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<title>Celeste</title>
+	 <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+	<!-- Custom style to override bootstrap -->
+	<link rel="stylesheet" href="sun style.css">
+
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	<!-- Bootstrap javascript cdn -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	
+	<!-- DateRangePicker files -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script type="text/javascript" src="../js/source_list.js"></script>
+    <script type="text/javascript" src="../js/celest.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+		
+</head>
+
+
+<body>
+	<div>
+	<h1>CELEST</h1>
+	</div>
+	
+	
+<!-- Intro paragraph with instructions -->
+	<div class="custom-intro">
+	<p>Welcome to Celest - a new way to explore add ons for OpenSpace! 
+	Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
+	doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore 
+	veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim 
+	ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
+	consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque 
+	porro quisquam est, qui dolorem ipsum quia dolor sit amet</p>
+	</div>
+
+
+
+<!--Section 1 - select planet, date range, time range, resolution -->
+	<div class = "section1">
+	<div class="row">
+		<div class="col-lg-3">
+		<div class="custom-border">
+		
+	<!--Planet selection-->
+			<h2>Space Thang</h2>
+			<div class="dropdown btn-group">
+				<div class="dropdown">
+					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select thang...
+					<span class="caret"></span></button>
+						<ul class="dropdown-menu">
+						  <li><a href="#">Sun</a></li>
+						</ul>
+				</div>
+			</div>
+		</div>
+		</div>
+		
+		<!--Date range selection-->
+		<div class="col-lg-3">
+		<div class="custom-border">
+			<h2>Date(s)</h2>
+			<form>
+			  <input type="date" name="startdate"><br><input type="date" name="enddate">
+			</form>
+		</div>
+		</div>
+		
+		<!--Time range selection-->
+		<div class="col-lg-3">
+		<div class="custom-border">
+			<h2>Time</h2>
+			<form action="/action_page.php">
+			  hh:mm am/pm
+			  <br>
+			  <input type="time" name="starttime"><br><input type="time" name="endtime">
+			</form>
+		</div>
+		</div>
+		
+		<!--Resolution selection-->
+		<div class="col-lg-3 text-center">
+			<h2>Resolution</h2>
+			<div class="dropdown btn-group">
+				<div class="dropdown">
+					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select resolution
+					<span class="caret"></span></button>
+						<ul class="dropdown-menu">
+						  <li><a href="#">Lowest</a></li>
+						  <li><a href="#">Low</a></li>
+						  <li><a href="#">Medium</a></li>
+						  <li><a href="#">High</a></li>
+						  <li><a href="#">Highest</a></li>
+						</ul>
+				</div>
+			</div>
+		</div>
+	</div> 
+	</div>
+	
+
+
+
+<!--Section 2 - select observatories and wavelengths-->	
+	<div class = "section2">
+	<div class="row">
+	<h2 class="text-center">Observatory</h2>
+		
+	<!--SDO and wavelength selection-->
+		<div class="col-lg-3">
+		<div class="custom-border2" id="data_source_col_0">
+		</div>
+		</div>
+		
+		
+	<!--SOHO and wavelength selection-->
+		<div class="col-lg-3">
+		<div class="custom-border2" id="data_source_col_1">
+		</div>
+		</div>
+		
+		
+	<!--Stereo B and wavelength selection-->
+		<div class="col-lg-3">
+		<div class="custom-border2" id="data_source_col_2">
+		</div>
+		</div>
+		
+		
+	<!--Stereo A and wavelength selection-->
+		<div class="col-lg-3">
+		<div class="custom-border2" id="data_source_col_3">
+		</div>
+		</div>
+	</div> 
+	</div>
+	
+	
+	
+	
+	
+	
+<!--Download button section-->
+	<div>
+	<button type="button" class="custom-btn" onclick = "loadFact();timer();">START DOWNLOAD</button>
+	</div>
+	
+<!--Status of download section-->	
+	<div class="status">
+	<p>STATUS// <span id="statusState">IDLE</span></p>
+	</div>
+	
+	
+<!--Sun facts section-->	
+	<div id="factDisplay" class = "section1">
+		<!-- Facts will display and cycle here -->
+	</div>
+	
+	
+	
+<!--Image preview section-->	
+	<div id="imageDisplay" class = "imageSection">
+		<!-- Facts will display and cycle here -->
+		<p>Preview image goes here</p>
+	</div>	
+	
+	
+	
+	
+	<script src="javascript.js"></script>
+</body>
+
+</html>
+	
