@@ -1,3 +1,10 @@
+/*
+
+This builds the source selector on the web interface, root and parent objects are not
+displayed, only child nodes, and the selection is based on the last node in the tree
+since that is where the file ID is located.
+
+*/
 var source_list = [{
   "name":"observatories",
   "node":"root",
