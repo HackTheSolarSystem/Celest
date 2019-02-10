@@ -3,6 +3,7 @@ import datetime
 from utils import get_helioview_image, download_file, get_image_id, get_image_metadata, make_filename, remove_file
 import json
 import zipfile
+from io import BytesIO
 
 
 
@@ -28,7 +29,9 @@ def sun():
     end_datetime = datetime.datetime.strptime(f"{request.args.get('end_date')} {request.args.get('end_time')}", "%Y-%m-%d %H:%M:%S")
     source_id = request.args.get("sourceId")
 
-    with zipfile.ZipFile('your_files.zip','w', zipfile.ZIP_DEFLATED) as zipf:
+    memory_file = BytesIO()
+
+    with zipfile.ZipFile(memory_file,'w', zipfile.ZIP_DEFLATED) as zipf:
 
         for ind, target in enumerate(get_date_ranges(start_datetime, end_datetime)):
             params = {
@@ -48,20 +51,19 @@ def sun():
             img = raw.read()
 
             filename = make_filename(json.loads(image_headers)['meta']['fits']['DATE'], source_id)
-            print(filename)
-            
 
             with open(f"{filename}.json", 'w') as file:
                 file.write(image_headers)
             with open(f"{filename}.jp2", 'wb') as file:
                 file.write(img)
             
-            zipf.write(f"{filename}.json")
-            zipf.write(f"{filename}.jp2")
-            remove_file(f"{filename}.json")
-            remove_file(f"{filename}.jp2")
+            file_types = ['.json', '.jp2']
 
-    return send_file('your_files.zip')
+            for file_type in file_types:
+                zipf.write(f"{filename}{file_type}")
+                remove_file(f"{filename}{file_type}")
+
+    return send_file(memory_file, attachment_filename='Sun Data.zip', as_attachment=True)
 
 if __name__ == "__main__":
     app.run()
