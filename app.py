@@ -3,9 +3,6 @@ import datetime
 from utils import get_helioview_image, download_file, get_image_id, get_image_metadata, make_filename, remove_file
 import json
 import zipfile
-from io import BytesIO
-
-
 
 def get_date_ranges(start_date, end_date):
     step = datetime.timedelta(minutes=15)
@@ -29,9 +26,7 @@ def sun():
     end_datetime = datetime.datetime.strptime(f"{request.args.get('end_date')} {request.args.get('end_time')}", "%Y-%m-%d %H:%M:%S")
     source_id = request.args.get("sourceId")
 
-    memory_file = BytesIO()
-
-    with zipfile.ZipFile(memory_file,'w', zipfile.ZIP_DEFLATED) as zipf:
+    with zipfile.ZipFile('sun_data.zip','w', zipfile.ZIP_DEFLATED) as zipf:
 
         for ind, target in enumerate(get_date_ranges(start_datetime, end_datetime)):
             params = {
@@ -63,7 +58,7 @@ def sun():
                 zipf.write(f"{filename}{file_type}")
                 remove_file(f"{filename}{file_type}")
 
-    return send_file(memory_file, attachment_filename='Sun Data.zip', as_attachment=True)
+    return send_file('sun_data.zip', attachment_filename='Sun Data.zip')
 
 if __name__ == "__main__":
     app.run()
