@@ -25,7 +25,7 @@ def sun():
     start_datetime = datetime.datetime.strptime(f"{request.args.get('start_date')} {request.args.get('start_time')}", "%Y-%m-%d %H:%M:%S")
     end_datetime = datetime.datetime.strptime(f"{request.args.get('end_date')} {request.args.get('end_time')}", "%Y-%m-%d %H:%M:%S")
     # resolution = request.args.get("resolution")
-    wavelength = request.args.get("wavelength")
+    source_id = request.args.get("sourceId")
 
     print(start_datetime, end_datetime, wavelength)
 
@@ -38,7 +38,7 @@ def sun():
             "hour": target.hour,
             "minute": target.minute,
             "second": target.second,
-            "sourceId": wavelength
+            "sourceId": source_id
         }
         raw = get_helioview_image(params)
         download_file(str(ind), raw)
