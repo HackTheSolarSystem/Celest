@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 import datetime
-from utils import get_helioview_image, download_file, get_image_id, get_image_metadata
+from utils import get_helioview_image, download_file, get_image_id, get_image_metadata, make_filename
 import json
 
 
@@ -27,7 +27,6 @@ def sun():
     source_id = request.args.get("sourceId")
 
     for ind, target in enumerate(get_date_ranges(start_datetime, end_datetime)):
-        print(target)
         params = {
             "year": target.year,
             "month": target.month,
@@ -44,9 +43,9 @@ def sun():
         raw = get_helioview_image(params)
         img = raw.read()
 
-        filename = json.loads(image_headers)['meta']['fits']['DATE']
-
-        filename = filename.replace('-','').replace(':','')
+        filename = make_filename(json.loads(image_headers)['meta']['fits']['DATE'])
+        print(filename)
+        
 
         with open(f"{filename}.json", 'w') as file:
             file.write(image_headers)
