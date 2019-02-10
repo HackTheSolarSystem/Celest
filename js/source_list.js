@@ -14,7 +14,7 @@ var source_list = [{
           "name":"measurements",
           "node":"parent",
           "values":[{
-            "name":"Frequencies",
+            "name":"All Frequencies",
             "node":"child",
             "values": [{
               "id"  : "14",
@@ -55,7 +55,7 @@ var source_list = [{
           "name":"measurement",
           "node":"parent",
           "values":[{
-            "name":"Frequencies",
+            "name":"All Frequencies",
             "node":"child",
             "values": [{
               "id"  : "18",
@@ -81,7 +81,7 @@ var source_list = [{
           "name":"measurements",
           "node":"parent",
           "values":[{
-            "name":"Frequencies",
+            "name":"All Frequencies",
             "node":"child",
             "values": [{
               "id"  : "1",
@@ -104,7 +104,7 @@ var source_list = [{
           "name":"measurement",
           "node":"parent",
           "values":[{
-            "name":"Frequencies",
+            "name":"All Frequencies",
             "node":"child",
             "values":[{
               "id":"4",
@@ -121,7 +121,7 @@ var source_list = [{
           "name":"measurement",
           "node":"parent",
           "values":[{
-            "name":"Frequencies",
+            "name":"All Frequencies",
             "node":"child",
             "values": [{
               "id":"7",
@@ -149,7 +149,7 @@ var source_list = [{
             "name":"EUVI",
             "node":"child",
             "values":[{
-              "name":"Frequencies",
+              "name":"All Frequencies",
               "node":"child",
               "values": [{
                 "id"  : "21",
@@ -168,7 +168,7 @@ var source_list = [{
               "name":"COR2",
               "node":"child",
               "values":[{
-                "name":"Frequencies",
+                "name":"All Frequencies",
                 "node":"child",
                 "values": [{
                   "id"  : "29",
@@ -179,7 +179,7 @@ var source_list = [{
               "name":"COR1",
               "node":"child",
               "values":[{
-                "name":"Frequencies",
+                "name":"All Frequencies",
                 "node":"child",
                 "values": [{
                   "id"  : "28",
@@ -206,7 +206,7 @@ var source_list = [{
             "name":"EUVI",
             "node":"child",
             "values":[{
-              "name":"Frequencies",
+              "name":"All Frequencies",
               "node":"child",
               "values": [{
                 "id"  : "25",
@@ -225,7 +225,7 @@ var source_list = [{
               "name":"COR1",
               "node":"child",
               "values":[{
-                "name":"Frequencies",
+                "name":"All Frequencies",
                 "node":"child",
                 "values": [{
                   "id"  : "30",
@@ -236,7 +236,7 @@ var source_list = [{
               "name":"COR2",
               "node":"child",
               "values":[{
-                "name":"Frequencies",
+                "name":"All Frequencies",
                 "node":"child",
                 "values": [{
                   "id"  : "31",
