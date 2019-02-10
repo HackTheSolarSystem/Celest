@@ -1,5 +1,3 @@
-
-
 var sunFacts = [
 	'One million Earths could ift inside the Sun!',
 	'The Sun contains 99.86% of the mass in the Solar System!',
@@ -14,8 +12,8 @@ var sunFacts = [
 var factTimer = setInterval(loadFact, 2000);
 	
 function loadFact() {
-	var randomNumber = Math.floor(Math.random() * sunFacts.length));
-	document.getElementById('factDsiplay').innerHTML = sunFacts[randomNumber];
+	var randomNumber = Math.floor(Math.random() * sunFacts.length);
+	$("#factDisplay")[0].innerHTML = sunFacts[randomNumber];
 }
 
 

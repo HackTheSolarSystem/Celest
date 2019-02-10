@@ -10,6 +10,8 @@
 	<!-- Custom style to override bootstrap -->
 	<link rel="stylesheet" href="sun style.css">
 
+    <!-- Sun Facts! -->
+    <script src="Sun Facts.js"></script>
 
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -21,9 +23,15 @@
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+    <!-- Progress bar files -->
+    <script src="../js/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="jquery-ui.min.css">
+
+    <!-- Dynamically loaded data files -->
     <script type="text/javascript" src="../js/source_list.js"></script>
     <script type="text/javascript" src="../js/celest.js"></script>
-	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 		
 </head>
 
@@ -153,22 +161,20 @@
 	
 <!--Download button section-->
 	<div>
-	<button type="button" class="custom-btn" onclick = "loadFact();timer();">START DOWNLOAD</button>
+	<button type="button" class="custom-btn" onclick = "loadFact();;startDownload();">START DOWNLOAD</button>
 	</div>
 	
 	<div>
-	<p>STATUS// IDLE</p>
-	</div>
-	
-	
-<!--Sun facts section-->	
-	<div id="factDisplay" class = "section1">
+	<p>
+      STATUS//Idle
+
+      <!--Sun facts section-->	
+	  <div id="factDisplay" class = "section1">
 		<!-- Facts will display and cycle here -->
-	</div>
-	
-	
-	
-	<script src="javascript.js"></script>
+	  </div>
+    </p>
+    <div id="progressbar"></div>
+  </div>
 </body>
 
 </html>
