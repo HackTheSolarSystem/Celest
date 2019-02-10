@@ -7,7 +7,7 @@
 * Megan Learn - learnmp
 * Joe Tatusko - joetats
 * Ian Anderson - andersis
-* Put your name and github handle
+* John Mauger - zakabog
 
 ### Solution Description
 
