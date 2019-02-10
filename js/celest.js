@@ -26,6 +26,18 @@ function makeList(array, root){
   }
 }
 
+function startDownload () {
+
+/*  $.ajax({
+    url: url,
+    data: data,
+    success: success,
+    dataType: "json"
+  });
+*/
+
+}
+
 $(document).ready(
   function(){
     for (current_col = 0; current_col < source_list[0].values.length; current_col++) {
@@ -34,7 +46,7 @@ $(document).ready(
       var div_head = $("#data_source_col_" + current_col);
       var body = $("<div class='collapse' id='data_source_col_body_" + current_col + "'></div>");
       var header = $("<h3><input type='checkbox' id=" + source_name + "'>" + source_name + "</input></h3>");
-      var collapse_button = $("<button data-toggle='collapse' data-target='#data_source_col_body_" + current_col + "'>Collapsible</button>");
+      var collapse_button = $("<span class='collapse-button'><button data-toggle='collapse' data-target='#data_source_col_body_" + current_col + "'>+</button></span>");
 
       header.append(collapse_button);
 
@@ -54,12 +66,4 @@ $(document).ready(
 
       var query_string = "[{" + start_date + "}]"; // JSON data to send to Python script
     });
-
-/*  $.ajax({
-    url: url,
-    data: data,
-    success: success,
-    dataType: "json"
-  });
-*/
 });
