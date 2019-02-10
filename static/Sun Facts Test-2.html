@@ -38,7 +38,7 @@
 
 <body>
 	<div>
-	<h1>CELEST</h1>
+	<img class="logo" src="../web_assets/Logo-QuickFix.jpg" />
 	</div>
 	
 	
@@ -56,6 +56,7 @@
 
 
 <!--Section 1 - select planet, date range, time range, resolution -->
+	<img class="logo" src="../web_assets/InfoIcon-QuickFix.jpg" />
 	<div class = "section1">
 	<div class="row">
 		<div class="col-lg-3">
@@ -121,34 +122,35 @@
 
 
 <!--Section 2 - select observatories and wavelengths-->	
+	<img class="logo" src="../web_assets/Observatory-QuickFix.jpg" />
 	<div class = "section2">
 	<div class="row">
 	<h2 class="text-center">Observatory</h2>
 		
 	<!--SDO and wavelength selection-->
 		<div class="col-lg-3">
-		<div class="custom-border" id="data_source_col_0">
+		<div class="custom-border2" id="data_source_col_0">
 		</div>
 		</div>
 		
 		
 	<!--SOHO and wavelength selection-->
 		<div class="col-lg-3">
-		<div class="custom-border" id="data_source_col_1">
+		<div class="custom-border2" id="data_source_col_1">
 		</div>
 		</div>
 		
 		
 	<!--Stereo B and wavelength selection-->
 		<div class="col-lg-3">
-		<div class="custom-border" id="data_source_col_2">
+		<div class="custom-border2" id="data_source_col_2">
 		</div>
 		</div>
 		
 		
 	<!--Stereo A and wavelength selection-->
 		<div class="col-lg-3">
-		<div class="custom-border" id="data_source_col_3">
+		<div id="data_source_col_3">
 		</div>
 		</div>
 	</div> 
@@ -165,8 +167,12 @@
 	</div>
 	
 	<div>
+	
+<!--Status of download section-->	
+	<div class="status">
+	<p>STATUS // <span id="statusState">IDLE</span></p>
+	</div>
 	<p>
-      STATUS//Idle
 
       <!--Sun facts section-->	
 	  <div id="factDisplay" class = "section1">
@@ -175,6 +181,14 @@
     </p>
     <div id="progressbar"></div>
   </div>
+  
+ 
+<!--Image preview section-->	
+	<div id="imageDisplay" class = "imageSection">
+		<!-- Facts will display and cycle here -->
+		<img src="../web_assets/400x400_SunExample.jpg" />
+</div>  
+ 
 </body>
 
 </html>
