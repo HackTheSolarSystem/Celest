@@ -1,0 +1,287 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<title>Celeste</title>
+	 <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+	<!-- Custom style to override bootstrap -->
+	<link rel="stylesheet" href="sun style.css">
+
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	<!-- Bootstrap javascript cdn -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	
+	<!-- DateRangePicker files -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+		
+</head>
+
+
+<body>
+	<div>
+	<h1>CELEST</h1>
+	</div>
+	
+	
+<!-- Intro paragraph with instructions -->
+	<div class="custom-intro">
+	<p>Welcome to Celest - a new way to explore add ons for OpenSpace! 
+	Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
+	doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore 
+	veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim 
+	ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
+	consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque 
+	porro quisquam est, qui dolorem ipsum quia dolor sit amet</p>
+	</div>
+
+
+
+<!--Section 1 - select planet, date range, time range, resolution -->
+	<div class = "section1">
+	<div class="row">
+		<div class="col-lg-3">
+		<div class="custom-border">
+		
+	<!--Planet selection-->
+			<h2>Space Thang</h2>
+			<div class="dropdown btn-group">
+				<div class="dropdown">
+					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select thang...
+					<span class="caret"></span></button>
+						<ul class="dropdown-menu">
+						  <li><a href="#">Sun</a></li>
+						</ul>
+				</div>
+			</div>
+		</div>
+		</div>
+		
+		<!--Date range selection-->
+		<div class="col-lg-3">
+		<div class="custom-border">
+			<h2>Date(s)</h2>
+			<form>
+			  <input type="date" name="startdate">
+			  <br>
+			  <input type="date" name="enddate">
+			</form>
+		</div>
+		</div>
+		
+		<!--Time range selection-->
+		<div class="col-lg-3">
+		<div class="custom-border">
+			<h2>Time</h2>
+			<form action="/action_page.php">
+			  hh:mm am/pm
+			  <br>
+			  <input type="time" name="starttime">
+			  <br>
+			  <input type="time" name="endtime">
+			</form>
+		</div>
+		</div>
+		
+		<!--Resolution selection-->
+		<div class="col-lg-3 text-center">
+			<h2>Resolution</h2>
+			<div class="dropdown btn-group">
+				<div class="dropdown">
+					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select resolution
+					<span class="caret"></span></button>
+						<ul class="dropdown-menu">
+						  <li><a href="#">Lowest</a></li>
+						  <li><a href="#">Low</a></li>
+						  <li><a href="#">Medium</a></li>
+						  <li><a href="#">High</a></li>
+						  <li><a href="#">Highest</a></li>
+						</ul>
+				</div>
+			</div>
+		</div>
+	</div> 
+	</div>
+	
+
+
+
+<!--Section 2 - select observatories and wavelengths-->	
+	<div class = "section2">
+	<div class="row">
+	<h2 class="text-center">Observatory</h2>
+		
+	<!--SDO and wavelength selection-->
+		<div class="col-lg-3">
+		<div class="custom-border">
+			<p>SDO</p>
+			<button data-toggle="collapse" data-target="#sdoList">+</button>
+			<div id="sdoList" class="collapse">
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">AIA 1700</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">AIA 131</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">AIA 211</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">AIA 1600</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">AIA 94</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">AIA 193</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">AIA 335</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">AIA 4500</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">AIA 171</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">AIA 304</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">HMI Int</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">HMI Mag</label>
+				</div>
+			</div> 
+		</div>
+		</div>
+		
+		
+	<!--SOHO and wavelength selection-->
+		<div class="col-lg-3">
+		<div class="custom-border">
+			<h3>SOHO</h3>
+			<button data-toggle="collapse" data-target="#sohoList">Collapsible</button>
+			<div id="sohoList" class="collapse">
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">EIT 304</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">EIT 284</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">EIT 195</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">EIT 171</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">LASCO C2</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">LASCO C3</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">MDI Int</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">MDI Mag</label>
+				</div>
+			</div> 
+		</div>
+		</div>
+		
+		
+	<!--Stereo B and wavelength selection-->
+		<div class="col-lg-3">
+		<div class="custom-border">
+			<h3>Stereo B</h3>
+			<button data-toggle="collapse" data-target="#stereoBList">Collapsible</button>
+			<div id="stereoBList" class="collapse">
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">EUVI-B 304</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">EUVI-B 284</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">EUVI-B 195</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">EUVI-B 171</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">COR2-B</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">COR1-B 284</label>
+				</div>
+			</div> 
+		</div>
+		</div>
+		
+		
+	<!--Stereo A and wavelength selection-->
+		<div class="col-lg-3 text-center">
+			<h3>Stereo A</h3>
+			<button data-toggle="collapse" data-target="#stereoAList">Collapsible</button>
+			<div id="stereoAList" class="collapse">
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">EUVI-A 304</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">EUVI-A 284</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">EUVI-A 195</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">EUVI-A 171</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">COR2-A</label>
+				</div>
+				<div class="checkbox">
+				  <label><input type="checkbox" value="">COR1-A 284</label>
+				</div>
+			</div> 
+		</div>
+	</div> 
+	</div>
+	
+	
+	
+	
+	
+	
+<!--Download button section-->
+	<div>
+	<button type="button" class="custom-btn" onclick = "loadFact();timer();">START DOWNLOAD</button>
+	</div>
+	
+	<div>
+	<p>STATUS// IDLE</p>
+	</div>
+	
+	
+<!--Sun facts section-->	
+	<div id="factDisplay" class = "section1">
+		<!-- Facts will display and cycle here -->
+	</div>
+	
+	
+	
+	<script src="javascript.js"></script>
+</body>
+
+</html>
+	
