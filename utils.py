@@ -86,7 +86,7 @@ def download_file(params):
     temp = tempfile.NamedTemporaryFile()
     try:
         raw_data = get_helioview_image(params)
-        shutil.copyfileobj(raw_data, f)
+        shutil.copyfileobj(raw_data, temp)
     finally:
         temp.close()
     return temp.name

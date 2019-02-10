@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for
 import datetime
-from utils import get_helioview_image, download_file
+from utils import get_helioview_image, download_file, get_image_id, get_image_metadata
+import json
+
 
 def get_date_ranges(start_date, end_date):
-    # start_date = datetime.strptime(start, "%Y-%m-%d %H:%M:%S")
-    # end_date = datetime.strptime(end, "%Y-%m-%d %H:%M:%S")
     step = datetime.timedelta(minutes=15)
 
     target_times = []
@@ -24,10 +24,7 @@ def index():
 def sun():
     start_datetime = datetime.datetime.strptime(f"{request.args.get('start_date')} {request.args.get('start_time')}", "%Y-%m-%d %H:%M:%S")
     end_datetime = datetime.datetime.strptime(f"{request.args.get('end_date')} {request.args.get('end_time')}", "%Y-%m-%d %H:%M:%S")
-    # resolution = request.args.get("resolution")
     source_id = request.args.get("sourceId")
-
-    print(start_datetime, end_datetime, wavelength)
 
     for ind, target in enumerate(get_date_ranges(start_datetime, end_datetime)):
         print(target)
@@ -38,10 +35,25 @@ def sun():
             "hour": target.hour,
             "minute": target.minute,
             "second": target.second,
-            "sourceId": source_id
+            "source_id": source_id
         }
+
+        image_id = get_image_id(params)
+        image_headers = get_image_metadata(image_id)
+
         raw = get_helioview_image(params)
-        download_file(str(ind), raw)
+        img = raw.read()
+
+        filename = json.loads(image_headers)['meta']['fits']['DATE']
+
+        filename = filename.replace('-','').replace(':','')
+
+        with open(f"{filename}.json", 'w') as file:
+            file.write(image_headers)
+        with open(f"{filename}.jp2", 'wb') as file:
+            file.write(img)
+
+        
 
     return redirect(url_for('index'))
 
