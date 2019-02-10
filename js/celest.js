@@ -36,6 +36,29 @@ function startDownload () {
   });
 */
 
+    var progressbar = $( "#progressbar" ), progressLabel = $( ".progress-label" );
+ 
+    progressbar.progressbar({
+      value: false,
+      change: function() {
+        progressLabel.text( progressbar.progressbar( "value" ) + "%" );
+      },
+      complete: function() {
+        progressLabel.text( "Download Complete!" );
+      }
+    });
+ 
+    function progress() {
+      var val = progressbar.progressbar( "value" ) || 0;
+ 
+      progressbar.progressbar( "value", val + 2 );
+ 
+      if ( val < 99 ) {
+        setTimeout( progress, 80 );
+      }
+    }
+ 
+    setTimeout( progress, 2000 );
 }
 
 $(document).ready(
@@ -56,7 +79,9 @@ $(document).ready(
       makeList(source_list[0].values[current_col].values, $("#data_source_col_body_" + current_col));
     }
 
-    $("#download").click(function( event ) {
+    $("#download").click(function(){
+      startDownload();
+
       var start_date = $("#start_date").val();
       var start_time = $("#start_time").val();
       var end_date   = $("#end_date").val();
