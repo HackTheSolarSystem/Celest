@@ -1,8 +1,8 @@
-## Celest 
+## Celeste
 
 ### Addressing [See Our Sun](https://github.com/amnh/HackTheSolarSystem/wiki/See-Our-Sun)
 
-### Created by Planet Express
+### Created by Solar Express
 * Joshua Learn - jjrylearn
 * Megan Learn - learnmp
 * Joe Tatusko - joetats
