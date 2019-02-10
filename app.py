@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 import datetime
-from utils import build_helioview_url
+from utils import get_helioview_image, download_file
 
 def get_date_ranges(start_date, end_date):
     # start_date = datetime.strptime(start, "%Y-%m-%d %H:%M:%S")
@@ -29,7 +29,7 @@ def sun():
 
     print(start_datetime, end_datetime, wavelength)
 
-    for target in get_date_ranges(start_datetime, end_datetime):
+    for ind, target in enumerate(get_date_ranges(start_datetime, end_datetime)):
         print(target)
         params = {
             "year": target.year,
@@ -40,7 +40,9 @@ def sun():
             "second": target.second,
             "sourceId": wavelength
         }
-        build_helioview_url(params)
+        raw = get_helioview_image(params)
+        download_file(str(ind), raw)
+
     return redirect(url_for('index'))
 
 if __name__ == "__main__":
