@@ -7,9 +7,9 @@
 
 .custom-btn{
 	width: 100%;
-	height: 60px;
+	height: 40px;
 	display: block;
-	background-color: gray;
+	background-color: #1c3997;
 	color: white;
 	border: none;
 	}
@@ -31,6 +31,14 @@
 	margin-bottom:5px;
 	/*text-align:center;*/
 }
+
+.custom-border2{
+	margin-top:5px;
+	border-right: black 2px solid;
+	margin-bottom:5px;
+	height: 400px;
+	/*text-align:center;*/
+}
 	
 .collapse-button{
 	margin-left:15px;
@@ -45,7 +53,6 @@
 
 .section2{
 	/*text-align:center;*/
-	margin-top:20px;
 	width: 100%;
 	background-color: #e7f1fa;
 	padding-left: 10%;
@@ -60,4 +67,24 @@
 	background-color #e7f1fa;
 }
 
-	
+.imageSection{
+	text-align:center;
+	width: 100%;
+	background-color: black;
+}	
+
+.status{
+	text-align:center;
+	vertical-align:middle;
+	width: 100%;
+	background-color: white;
+	padding-left: 33%;
+	padding-right: 33%;
+	height: 40px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}	
+
+.logo{
+	width:100%;
+}
