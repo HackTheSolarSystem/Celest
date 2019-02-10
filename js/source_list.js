@@ -15,7 +15,7 @@ var source_list = [{
           "node":"parent",
           "values":[{
             "name":"All Frequencies",
-            "node":"child",
+            "node":"parent",
             "values": [{
               "id"  : "14",
               "name": "335"
@@ -56,7 +56,7 @@ var source_list = [{
           "node":"parent",
           "values":[{
             "name":"All Frequencies",
-            "node":"child",
+            "node":"parent",
             "values": [{
               "id"  : "18",
               "name": "Continuum"
@@ -82,7 +82,7 @@ var source_list = [{
           "node":"parent",
           "values":[{
             "name":"All Frequencies",
-            "node":"child",
+            "node":"parent",
             "values": [{
               "id"  : "1",
               "name": "195"
@@ -105,7 +105,7 @@ var source_list = [{
           "node":"parent",
           "values":[{
             "name":"All Frequencies",
-            "node":"child",
+            "node":"parent",
             "values":[{
               "id":"4",
               "name":"C2 White-Lite"
@@ -122,7 +122,7 @@ var source_list = [{
           "node":"parent",
           "values":[{
             "name":"All Frequencies",
-            "node":"child",
+            "node":"parent",
             "values": [{
               "id":"7",
               "name": "Continuum"
@@ -150,7 +150,7 @@ var source_list = [{
             "node":"child",
             "values":[{
               "name":"All Frequencies",
-              "node":"child",
+              "node":"parent",
               "values": [{
                 "id"  : "21",
                 "name": "195"
@@ -169,7 +169,7 @@ var source_list = [{
               "node":"child",
               "values":[{
                 "name":"All Frequencies",
-                "node":"child",
+                "node":"parent",
                 "values": [{
                   "id"  : "29",
                   "name": "White-Lite"
@@ -180,7 +180,7 @@ var source_list = [{
               "node":"child",
               "values":[{
                 "name":"All Frequencies",
-                "node":"child",
+                "node":"parent",
                 "values": [{
                   "id"  : "28",
                   "name": "White-Lite"
@@ -207,7 +207,7 @@ var source_list = [{
             "node":"child",
             "values":[{
               "name":"All Frequencies",
-              "node":"child",
+              "node":"parent",
               "values": [{
                 "id"  : "25",
                 "name": "195"
@@ -226,7 +226,7 @@ var source_list = [{
               "node":"child",
               "values":[{
                 "name":"All Frequencies",
-                "node":"child",
+                "node":"parent",
                 "values": [{
                   "id"  : "30",
                   "name": "White-Lite"
@@ -237,7 +237,7 @@ var source_list = [{
               "node":"child",
               "values":[{
                 "name":"All Frequencies",
-                "node":"child",
+                "node":"parent",
                 "values": [{
                   "id"  : "31",
                   "name": "White-Lite"
