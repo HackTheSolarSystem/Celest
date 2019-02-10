@@ -61,15 +61,15 @@
 	<div class="row">
 		<div class="col-lg-3">
 		<div class="custom-border">
-		
+
 	<!--Planet selection-->
 			<h2>Space Thang</h2>
 			<div class="dropdown btn-group">
-				<div class="dropdown">
-					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select thang...
+				<div class="dropdown" id="space_thang_dropdown">
+					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="space_thang">Select thang...
 					<span class="caret"></span></button>
 						<ul class="dropdown-menu">
-						  <li><a href="#">Sun</a></li>
+						  <li><a href="#" id="space_thang_sun">Sun</a></li>
 						</ul>
 				</div>
 			</div>
@@ -102,15 +102,15 @@
 		<div class="col-lg-3 text-center">
 			<h2>Resolution</h2>
 			<div class="dropdown btn-group">
-				<div class="dropdown">
-					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select resolution
+				<div class="dropdown" id="resolution_dropdown">
+					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="resolution">Select resolution
 					<span class="caret"></span></button>
-						<ul class="dropdown-menu">
-						  <li><a href="#">Lowest</a></li>
-						  <li><a href="#">Low</a></li>
-						  <li><a href="#">Medium</a></li>
-						  <li><a href="#">High</a></li>
-						  <li><a href="#">Highest</a></li>
+						<ul class="dropdown-menu" id="resolution_list">
+						  <li><a href="#" id="resolution_lowest">Lowest</a></li>
+						  <li><a href="#" id="resolution_low">Low</a></li>
+						  <li><a href="#" id="resolution_medium">Medium</a></li>
+						  <li><a href="#" id="resolution_high">High</a></li>
+						  <li><a href="#" id="resolution_highest">Highest</a></li>
 						</ul>
 				</div>
 			</div>
@@ -163,7 +163,7 @@
 	
 <!--Download button section-->
 	<div>
-	<button type="button" class="custom-btn" onclick = "loadFact();;startDownload();">START DOWNLOAD</button>
+	<button type="button" class="custom-btn" onclick = "loadFact();startDownload();">START DOWNLOAD</button>
 	</div>
 	
 	<div>

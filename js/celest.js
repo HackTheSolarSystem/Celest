@@ -1,6 +1,18 @@
-var url = 'pulldata.py';
+function setSpaceThang(thang) {
+  $("#space_thang")[0].innerHTML = thang;
 
-var current_col = 0;
+  $("#space_thang_dropdown")[0].classList = "dropdown";
+
+  return false;
+}
+
+function setResolution(resolution) {
+  $("#resolution")[0].innerHTML = resolution;
+
+  $("#resolution_dropdown")[0].classList = "dropdown";
+
+  return false;
+}
 
 function makeList(array, root){
   if(typeof array[0].node !== 'undefined'){
@@ -35,6 +47,10 @@ function startDownload () {
     dataType: "json"
   });
 */
+
+  var start_date, start_time, end_date, end_time, source_id, start_date = "";
+
+
 
     var progressbar = $( "#progressbar" ), progressLabel = $( ".progress-label" );
  
@@ -82,13 +98,18 @@ $(document).ready(
     $("#download").click(function(){
       startDownload();
 
-      var start_date = $("#start_date").val();
-      var start_time = $("#start_time").val();
-      var end_date   = $("#end_date").val();
-      var end_time   = $("#end_time").val();
-      var source_id  = $("#source_id").val();
-      var start_date = $("#start_date").val();
-
       var query_string = "[{" + start_date + "}]"; // JSON data to send to Python script
+    });
+
+    $("#resolution_list").children().click(function(){
+      setResolution(this.innerText);
+
+      return false;
+    });
+
+    $("#space_thang_sun").click(function(){
+      setSpaceThang(this.innerText);
+
+      return false;
     });
 });
