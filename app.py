@@ -1,23 +1,17 @@
 from flask import Flask, render_template, request, redirect, url_for, send_file
 import datetime
-from utils import get_helioview_image, download_file, get_image_id, get_image_metadata, make_filename, remove_file
+from utils import get_helioview_image, download_file, get_image_id, get_image_metadata, make_filename, remove_file, make_zip_file
 import json
-import zipfile
+import os
 
-def get_date_ranges(start_date, end_date):
-    step = datetime.timedelta(minutes=15)
 
-    target_times = []
-
-    while start_date <= end_date:
-        target_times.append(start_date)
-        start_date += step
-    return target_times
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
+    if os.path.exists('sun_data.zip'):
+        os.remove('sun_data.zip')
     return render_template("index.html")
 
 @app.route("/sun")
@@ -26,39 +20,9 @@ def sun():
     end_datetime = datetime.datetime.strptime(f"{request.args.get('end_date')} {request.args.get('end_time')}", "%Y-%m-%d %H:%M:%S")
     source_id = request.args.get("sourceId")
 
-    with zipfile.ZipFile('sun_data.zip','w', zipfile.ZIP_DEFLATED) as zipf:
+    make_zip_file(start_datetime, end_datetime, source_id)
 
-        for ind, target in enumerate(get_date_ranges(start_datetime, end_datetime)):
-            params = {
-                "year": target.year,
-                "month": target.month,
-                "day": target.day,
-                "hour": target.hour,
-                "minute": target.minute,
-                "second": target.second,
-                "source_id": source_id
-            }
-
-            image_id = get_image_id(params)
-            image_headers = get_image_metadata(image_id)
-
-            raw = get_helioview_image(params)
-            img = raw.read()
-
-            filename = make_filename(json.loads(image_headers)['meta']['fits']['DATE'], source_id)
-
-            with open(f"{filename}.json", 'w') as file:
-                file.write(image_headers)
-            with open(f"{filename}.jp2", 'wb') as file:
-                file.write(img)
-            
-            file_types = ['.json', '.jp2']
-
-            for file_type in file_types:
-                zipf.write(f"{filename}{file_type}")
-                remove_file(f"{filename}{file_type}")
-
-    return send_file('sun_data.zip', attachment_filename='Sun_Data.zip', as_attachment=True)
+    return send_file('sun_data.zip', attachment_filename='sun_data.zip', as_attachment=True)
 
 if __name__ == "__main__":
     app.run()

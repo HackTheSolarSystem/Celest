@@ -5,6 +5,7 @@ import requests
 import shutil
 import tempfile
 import xmltodict
+import zipfile
 
 
 DIR = os.path.dirname(os.path.abspath(__file__))
@@ -115,3 +116,46 @@ def make_filename(header_date_time,source_id):
     date_parts.extend(time_parts)
     date_parts.append(source_id)
     return '_'.join(date_parts)
+
+def get_date_ranges(start_date, end_date):
+    step = datetime.timedelta(minutes=15)
+
+    target_times = []
+
+    while start_date <= end_date:
+        target_times.append(start_date)
+        start_date += step
+    return target_times
+
+def make_zip_file(start_datetime, end_datetime, source_id):
+    with zipfile.ZipFile('sun_data.zip','w', zipfile.ZIP_DEFLATED) as zipf:
+
+        for ind, target in enumerate(get_date_ranges(start_datetime, end_datetime)):
+            params = {
+                "year": target.year,
+                "month": target.month,
+                "day": target.day,
+                "hour": target.hour,
+                "minute": target.minute,
+                "second": target.second,
+                "source_id": source_id
+            }
+
+            image_id = get_image_id(params)
+            image_headers = get_image_metadata(image_id)
+
+            raw = get_helioview_image(params)
+            img = raw.read()
+
+            filename = make_filename(json.loads(image_headers)['meta']['fits']['DATE'], source_id)
+
+            with open(f"{filename}.json", 'w') as file:
+                file.write(image_headers)
+            with open(f"{filename}.jp2", 'wb') as file:
+                file.write(img)
+            
+            file_types = ['.json', '.jp2']
+
+            for file_type in file_types:
+                zipf.write(f"{filename}{file_type}")
+                remove_file(f"{filename}{file_type}")
