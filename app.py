@@ -58,7 +58,7 @@ def sun():
                 zipf.write(f"{filename}{file_type}")
                 remove_file(f"{filename}{file_type}")
 
-    return send_file('sun_data.zip', attachment_filename='Sun Data.zip')
+    return send_file('sun_data.zip', attachment_filename='Sun_Data.zip', as_attachment=True)
 
 if __name__ == "__main__":
     app.run()
