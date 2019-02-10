@@ -29,7 +29,7 @@
 	margin-top:5px;
 	border-right: black 2px solid;
 	margin-bottom:5px;
-	text-align:center;
+	/*text-align:center;*/
 }
 
 .section1{
@@ -40,7 +40,7 @@
 }
 
 .section2{
-	text-align:center;
+	/*text-align:center;*/
 	margin-top:20px;
 	width: 100%;
 	background-color: #e7f1fa;

@@ -29,13 +29,19 @@ function makeList(array, root){
 $(document).ready(
   function(){
     for (current_col = 0; current_col < source_list[0].values.length; current_col++) {
-      var ul = $("<ul style='list-style-type:none; padding-left: 0px;'></ul>");
-      var li = $("<li style='padding-left: 5px'></li>");
-      ul.append(li);
-      var check_box = $("<input type='checkbox' id=" + source_list[0].values[current_col].value + "'>" + source_list[0].values[current_col].name + "</input>");
-      li.append(check_box);
-      $("#data_source_col_" + current_col).append(ul);
-      makeList(source_list[0].values[current_col].values, li);
+      var source_name = source_list[0].values[current_col].name;
+
+      var div_head = $("#data_source_col_" + current_col);
+      var body = $("<div class='collapse' id='data_source_col_body_" + current_col + "'></div>");
+      var header = $("<h3><input type='checkbox' id=" + source_name + "'>" + source_name + "</input></h3>");
+      var collapse_button = $("<button data-toggle='collapse' data-target='#data_source_col_body_" + current_col + "'>Collapsible</button>");
+
+      header.append(collapse_button);
+
+      div_head.append(header);
+      div_head.append(body);
+
+      makeList(source_list[0].values[current_col].values, $("#data_source_col_body_" + current_col));
     }
 
     $("#download").click(function( event ) {
