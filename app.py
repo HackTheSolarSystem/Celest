@@ -4,8 +4,6 @@ from utils import get_helioview_image, download_file, get_image_id, get_image_me
 import json
 import os
 
-
-
 app = Flask(__name__)
 
 @app.route("/")
