@@ -112,9 +112,9 @@ def make_filename(header_date_time,source_id):
     filename = header_date_time.split('T')
     date_parts = filename[0].split('-')
     time_parts = filename[1].split(':')
-    date_parts.append('00')
+    date_parts.append('_00')
     date_parts.extend(time_parts)
-    date_parts.append(source_id)
+    date_parts.append(f'_{source_id})
     return '_'.join(date_parts)
 
 def get_date_ranges(start_date, end_date):
