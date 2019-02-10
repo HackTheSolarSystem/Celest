@@ -16,7 +16,7 @@ def index():
 def sun():
     start_datetime = datetime.datetime.strptime(f"{request.args.get('start_date')} {request.args.get('start_time')}", "%Y-%m-%d %H:%M:%S")
     end_datetime = datetime.datetime.strptime(f"{request.args.get('end_date')} {request.args.get('end_time')}", "%Y-%m-%d %H:%M:%S")
-    source_id = request.args.get("sourceId")
+    source_id = request.args.get("source_id")
 
     make_zip_file(start_datetime, end_datetime, source_id)
 
