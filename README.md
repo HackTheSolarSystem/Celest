@@ -7,7 +7,7 @@
 * Megan Learn - learnmp
 * Joe Tatusko - joetats
 * Ian Anderson - andersis
-* John Mauger - zakabog
+* John Maugeri - zakabog
 
 ### Solution Description
 
